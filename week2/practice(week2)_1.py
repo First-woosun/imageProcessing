@@ -9,15 +9,23 @@ from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QPushButton, Q
 class Form(QMainWindow):
     def __init__(self, parent=None):
         super(Form,self).__init__(parent)
+        # 이미지를 띄울 라벨 초기화
         self.label = QLabel("Image here")
         self.label.setFixedSize(640, 480)
+
+        # 수짓 레이아웃에 라벨 추가
         self.layout_vert = QVBoxLayout()
         self.layout_vert.addWidget(self.label)
 
+        # 이미지의 path를 입력할 EditLine 선언
         self.edit = QLineEdit("Write image path here")
         self.edit.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        
+        # 함수를 실행할 버튼 선언
         self.button = QPushButton("Load Image")
         self.button.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        
+        # QEditLine과 QPushButton을 수평 레이아웃에 추가
         self.layout_hori = QHBoxLayout()
         self.layout_hori.addWidget(self.edit)
         self.layout_hori.addWidget(self.button)
